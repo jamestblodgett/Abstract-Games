@@ -1,1 +1,2 @@
-I am conveniently not explaining this to any of you.
+## The link to the game is here:
+[Abstract Games](https://jamestblodgett.github.io/Abstract-Games/)
