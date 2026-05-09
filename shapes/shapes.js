@@ -4,13 +4,15 @@ const ctx = canvas.getContext('2d');
 
 const shapes = ['square', 'circle', 'triangle'];
 const colors = ['red', 'green', 'blue', 'orange', 'purple'];
-const objectSize = 50;
+const objectSize = 80;
 const objectCount = random(5,10);
 const objects = [];
 let baseSpeed = 5;
 let shapeCount = objectCount;
 const gravity = 0.1;
 let rate = 60000;
+
+let score = 0;
 
 function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -225,10 +227,32 @@ setInterval(() => {
 
 const speedDisplay = document.getElementById('currentSpeed');
 const shapeCountDisplay = document.getElementById('shapeCount');
+const scoreDisplay = document.getElementById('score');
 
 function updateStatDisplays() {
     speedDisplay.textContent = `Current Speed: ${baseSpeed.toFixed(1)}`;
     shapeCountDisplay.textContent = `Shape Count: ${shapeCount}`;
+}
+
+canvas.addEventListener("click", (event) => {
+    const rect = canvas.getBoundingClientRect();
+    const clickX = event.clientX - rect.left;
+    const clickY = event.clientY - rect.top;
+
+    objects.forEach(obj => {
+        if (clickX > obj.x && clickX < obj.x + obj.size &&
+            clickY > obj.y && clickY < obj.y + obj.size) {
+
+            resetObject(obj);
+            score++;
+            updateScore();
+
+        }
+    });
+});
+
+function updateScore() {
+    scoreDisplay.textContent = `Score: ${score}`;
 }
 
 updateStatDisplays();

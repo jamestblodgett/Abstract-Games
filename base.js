@@ -2,9 +2,9 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
 const shapes = ['square', 'circle', 'triangle'];
-const colors = ['#000000', '#6cff6c', '#6a6ad7', '#FFA500', '#b751b7'];
+const colors = ['#3d3d3d', '#6cff6c', '#6a6ad7', '#FFA500', '#b751b7'];
 const objectSize = 50;
-const objectCount = random(5,10);
+const objectCount = 15;
 const objects = [];
 let baseSpeed = 1.5;
 let shapeCount = objectCount;
