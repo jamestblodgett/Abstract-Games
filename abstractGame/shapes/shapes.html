@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapes</title>
+    <link rel="icon" type="image/png" href="shapes.png">
+    <link rel="stylesheet" href="shapes.css">
+</head>
+<body>
+   <div id="sidebar">
+        <h1>Shapes</h1>
+        <p id = "versionText">Version: ${GAME_CONFIG.version}</p>
+        <p id = "lastUpdateText">Last updated: ${GAME_CONFIG.lastUpdate}</p>
+        <p id = "currentSpeed">Current Speed: 5.0</p>
+        <p id = "shapeCount">Shape Count: 0</p>
+        <a href="../index.html"><button>Go back</button></a>
+    </div>
+   <canvas id="gameCanvas" width = "600" height = "600"></canvas>
+</body>
+<script type="module">
+    import { GAME_CONFIG } from '../config.js';
+
+    // Sidebar version
+    document.getElementById("versionText").textContent =
+        `Version: ${GAME_CONFIG.version}`;
+
+    document.getElementById("lastUpdateText").textContent =
+        `Last updated: ${GAME_CONFIG.lastUpdate}`;
+</script>
+
+<script src="shapes.js"></script>
+</html>
